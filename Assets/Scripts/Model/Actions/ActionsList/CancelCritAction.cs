@@ -24,6 +24,13 @@ namespace ActionsList
             ImageUrl = critCard.ImageUrl;
         }
 
+        public override GenericAction Clone()
+        {
+            var clone = new CancelCritAction();
+            clone.Initialize(CritCard);
+            return clone;
+        }
+
         public override void ActionTake()
         {
             Selection.ActiveShip = Selection.ThisShip;

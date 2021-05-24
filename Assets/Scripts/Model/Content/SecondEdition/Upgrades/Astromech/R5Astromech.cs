@@ -94,6 +94,11 @@ namespace ActionsList
             DiceModificationName = Name = "Repair 1 " + face.ToString().ToLower() + (type != null ? " " + type.ToString() : "") + " damage";
         }
 
+        public override GenericAction Clone()
+        {
+            return new RepairAction(damageCardFace, criticalCardType);
+        }
+
         public override void ActionTake()
         {
             if (PayRepairCost())

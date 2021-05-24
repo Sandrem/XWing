@@ -135,8 +135,7 @@ namespace Ship
         private GenericAction GetActionAsRed(GenericAction action)
         {
             //Make a deep clone to avoid changing the original action to red
-            GenericAction instance = (GenericAction)Activator.CreateInstance(action.GetType());
-            if (instance.IsCritCancelAction) ((CancelCritAction)instance).Initialize(((CancelCritAction)action).CritCard);
+            GenericAction instance = action.Clone();
             instance.Color = ActionColor.Red;
             return instance;
         }
